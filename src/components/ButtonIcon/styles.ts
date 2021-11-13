@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
 
   imgDiscord: {},
   text: {
+    fontFamily: theme.fonts.text500,
     flex: 1,
     color: theme.color.heading,
     textAlign: "center",
