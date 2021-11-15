@@ -8,13 +8,10 @@ import {
 import { styles } from "./styles";
 import GuildIcon from "../GuildIcon";
 import {Feather} from '@expo/vector-icons'
+import { theme } from "../../styles/theme";
+import { GuildProps } from "../Appointment";
 
-type GuildProps = {
-  id: string;
-  name: string;
-  icon: string;
-  owner: boolean;
-};
+
 
 type Props = TouchableOpacityProps & {
   item: GuildProps;
@@ -29,7 +26,7 @@ export function Guild({ item, ...props }: Props) {
         <Text  style={styles.guildname} >{item.name}</Text>
         <Text style={styles.usertype} >{ item.owner? 'Admin' : 'Guest' }</Text>
       </View>
-      <Feather name="chevron-right" size={24} />
+      <Feather name="chevron-right" size={16} color={theme.color.heading} />
     </TouchableOpacity>
   );
 }

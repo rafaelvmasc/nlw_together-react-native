@@ -8,6 +8,7 @@ import ListDivider from "../../components/ListDivider";
 import { ListHeader } from "../../components/ListHeader";
 import { Profile } from "../../components/Profile";
 import { styles } from "./styles";
+import Background from "../../components/Background";
 
 export function Home() {
   const [category, setCategory] = useState("");
@@ -53,10 +54,8 @@ export function Home() {
     categoryId === category ? setCategory("") : setCategory(categoryId);
   }
 
-  
-
   return (
-    <View style={styles.container}>
+    <Background>
       <View style={styles.header}>
         <Profile />
         <ButtonAdd onPress={handleAppointmentCreate} />
@@ -68,20 +67,19 @@ export function Home() {
         setCategory={handleCategorySelect}
       />
 
-      <View style={styles.content}>
-        <ListHeader title="Partidas Agendadas" subtitle="Total 6" />
+      <ListHeader title="Partidas Agendadas" subtitle="Total 6" />
 
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          style={styles.matches}
-          data={appointment}
-          ItemSeparatorComponent={() => <ListDivider />}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <Appointment onPress={handleAppointmentDetails} data={item} />
-          )}
-        />
-      </View>
-    </View>
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        style={styles.matches}
+        data={appointment}
+        ItemSeparatorComponent={() => <ListDivider />}
+        keyExtractor={(item) => item.id}
+        contentContainerStyle={{ paddingBottom: 69 }}
+        renderItem={({ item }) => (
+          <Appointment onPress={handleAppointmentDetails} data={item} />
+        )}
+      />
+    </Background>
   );
 }

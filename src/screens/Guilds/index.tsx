@@ -18,7 +18,13 @@ export function Guilds({handleGuildSelected } : Props) {
             name: 'Lendarios',
             icon: 'https://www.freeiconspng.com/thumbs/discord-icon/discord-metro-style-icon-0.png',
             owner: true,
-        }
+        },
+        {
+            id: '2',
+            name: 'Lendarios',
+            icon: 'https://www.freeiconspng.com/thumbs/discord-icon/discord-metro-style-icon-0.png',
+            owner: true,
+        },
     ]
 
     return (
@@ -28,7 +34,9 @@ export function Guilds({handleGuildSelected } : Props) {
                 keyExtractor={item => item.id} 
                 showsVerticalScrollIndicator={false}
                 ItemSeparatorComponent={()=><ListDivider/>}
+                ListHeaderComponent={()=><ListDivider/>}
                 style={styles.guilds}
+                contentContainerStyle={{paddingBottom: 24}}
                 renderItem={({item}) => (
         
                 <Guild 

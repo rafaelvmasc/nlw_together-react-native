@@ -16,7 +16,7 @@ export function CategorySelect({ categorySelected, setCategory, hasCheckBox=fals
       style={styles.container}
       horizontal
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{ padding: 24 }}
+      contentContainerStyle={{ paddingHorizontal: 40, }}
     >
       {categories.map((category) => (
         <Category

@@ -33,10 +33,16 @@ export function AppointmentCreate() {
   function handleModal(){
     setModalVisible(true)
   }
+  function handleCloseModal(){
+    setModalVisible(false)
+  }
 
   function handleGuildSelected(guildSelect: GuildProps){
     setGuild(guildSelect);
     setModalVisible(false);
+  }
+  function handleCategorySelect(categoryId: string){
+    setCategory(categoryId)
   }
 
   return (
@@ -53,7 +59,7 @@ export function AppointmentCreate() {
         <CategorySelect
           hasCheckBox
           categorySelected={categorySelected}
-          setCategory={setCategory}
+          setCategory={handleCategorySelect}
         />
 
         <View style={styles.form}>
@@ -106,7 +112,7 @@ export function AppointmentCreate() {
           <NormalButton title="Agendar" style={{ marginVertical: 30,  }} />
         </View>
       </ScrollView>
-      <ModalView visible={modalvisible} >
+      <ModalView visible={modalvisible} closeModal={handleCloseModal} >
         <Guilds handleGuildSelected={handleGuildSelected} />
       </ModalView>
     </KeyboardAvoidingView>
